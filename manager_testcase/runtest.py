@@ -19,7 +19,7 @@ def send_mail(file_new):
 
   smtp=smtplib.SMTP()
   smtp.connect("smtp.qq.com")
-  smtp.login("277642429@qq.com","nljttuuhpwdybjhj")
+  smtp.login("277642429@qq.com","cwycivhpidiwbjgc")
   smtp.sendmail("277642429@qq.com","277642429@qq.com",msg.as_string())
   smtp.quit()
   print('email has send out')
@@ -35,11 +35,11 @@ def new_report(testreport):
 if __name__=='__main__':
   test_dir='./testcase/mini_souye'
   test_report='./report'
-  discover=unittest.defaultTestLoader.discover(test_dir,pattern='advert_*.py')
+  discover=unittest.defaultTestLoader.discover(test_dir,pattern='mini_*.py')
   now=time.strftime("%Y-%m-%d_%H_%M_%S")
   filename='./report/'+now+'result.html'
   fp=open(filename,'wb')
-  runner=HTMLTestRunner(stream=fp,title='测试报告',description='用例执行情况：')
+  runner=HTMLTestRunner(stream=fp,title='测试报告',description='用例执行情况：',verbosity=2)
   runner.run(discover)
   fp.close()
   new_report=new_report(test_report)

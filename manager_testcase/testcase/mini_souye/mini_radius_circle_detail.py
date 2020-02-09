@@ -6,21 +6,23 @@ import requests
 from public import base
 from public import b64
 import base64
+from public import ticketid
+from public import sql
 
 class MyfirstTestCase(unittest.TestCase):
-  '''首页模块 / 首页广告'''
   def setUp(self):
-    self.url=base.get_host('advert/listbyadvert')
-    self.data={"deliveryType": 1,"siteCode":1}
-    self.data=b64.b64(self.data)
-    self.trans=base.get_trans(self.data)
+    self.url=base.get_host('/radius/circle/detail')
+    id = sql.bjqsql()
+    data={"id":id}
+    #print(data)
+    data=b64.b64(data)
+    self.trans=base.get_trans(data)
   def test_sample(self):
     r=requests.post(self.url,data=self.trans)
-    print(r)
     r=r.json()
-    #print(r)
-    da=r.get('code')
-    self.assertEqual(da,0)
+    da=r.get("code")
+    self.assertEqual(da, 0)
+    print (r)
   def tearDown(self):
     print ("succese")
 if __name__ =='__main__':

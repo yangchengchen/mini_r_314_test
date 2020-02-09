@@ -5,18 +5,18 @@ import json
 import requests
 from public import base
 from public import b64
-import base64
 from public import post
-
+import base64
 class MyfirstTestCase(unittest.TestCase):
-  '''搜索模块／搜索结果'''
+  '''我的模块／常见问题模块'''
   def setUp(self):
-    self.url=base.get_host('/search/firstpage/list')
-    self.data={"searchTxt": "测试"}
+    self.url=base.get_host('/users/helpinfo')
+    self.data={"hasPage": "1","curPage": 1,"pageSize": 20}
     self.data=b64.b64(self.data)
     self.trans=base.get_trans(self.data)
   def test_sample(self):
     r=post.rpost(self.url,data=self.trans)
+    #da=r.get('code')
     self.assertEqual(r,0)
   def tearDown(self):
     print ("succese")
