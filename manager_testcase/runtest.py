@@ -8,7 +8,7 @@ import unittest
 import time
 import os
 import sys
-#sys.path.append('./testcase')
+
 #=============定义发送邮件====================
 def send_mail(file_new):
   f=open(file_new,'rb')
@@ -19,7 +19,7 @@ def send_mail(file_new):
 
   smtp=smtplib.SMTP()
   smtp.connect("smtp.qq.com")
-  smtp.login("277642429@qq.com","cwycivhpidiwbjgc")
+  smtp.login("277642429@qq.com","vofntcvrvzpqcbbc")
   smtp.sendmail("277642429@qq.com","277642429@qq.com",msg.as_string())
   smtp.quit()
   print('email has send out')
@@ -33,6 +33,7 @@ def new_report(testreport):
   return file_new
 
 if __name__=='__main__':
+  print(sys.path)
   test_dir='./testcase/mini_souye'
   test_report='./report'
   discover=unittest.defaultTestLoader.discover(test_dir,pattern='mini_*.py')
