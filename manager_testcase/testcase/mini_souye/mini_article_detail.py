@@ -8,6 +8,8 @@ from public import b64
 import base64
 from public import ticketid
 from public import sql
+import sys
+sys.path.append('/var/jenkins_home/workspace/test/manager_testcase/testcase/public')
 
 class MyfirstTestCase(unittest.TestCase):
   '''文章模块 / 文章详情'''
