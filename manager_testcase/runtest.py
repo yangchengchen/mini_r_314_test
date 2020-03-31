@@ -8,6 +8,7 @@ import unittest
 import time
 import os
 import sys
+sys.path.append('/var/jenkins_home/workspace/test/manager_testcase/testcase/public')
 
 #=============定义发送邮件====================
 def send_mail(file_new):
