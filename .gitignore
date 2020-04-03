@@ -2,3 +2,4 @@ node_modules
 dist/
 .tmp
 app.yaml
+manager_testcase/report/
